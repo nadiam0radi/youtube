@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open sans' , sans-serif;
+}
+
+:root{
+    --white-color:#fff;
+    --black-color:#000;
+    --ligth-white-color:#f0f0f0;
+    --ligth-gray-color:#e5e5e5;
+    --border-color:#d4d4d4;
+    --primary-color:#3b82f6;
+    --secondary-color:#404040;
+    --overlay-dark-color:rgba(0,0,0,0.6)
+}
+body.dark-mode{
+    --white-color:#171717;
+    --black-color:#d4d4d4;
+    --ligth-white-color:#333;
+    --ligth-gray-color:#404040;
+    --border-color:#737373;
+    --secondary-color:#d4d4d4;
+}
+body{
+    background: var(--white-color);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+}
+header , .category-list{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--white-color);
+}
+.navbar{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+/*  .navber .search-form
+    .navber .nav-logo
+    .navber .nav-section
+*/
+.navbar :where(.nav-section , .search-form , .nav-logo){
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-section{
+    gap: 1rem;
+}
+
+
+.navbar .user-image{
+    width: 32px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+.navbar .logo-image{
+    width: 60px;
+    padding-top: 0.12rem;
+    cursor: pointer;
+}
+
+.navbar .nav-button{
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    background: none;
+
+}
+
+.navbar .nav-button:hover{
+    background-color: var(--ligth-gray-color);
+
+}
+
+.navbar .nav-button i{
+    color: var(--black-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+
+.navbar .nav-logo {
+    display: flex;
+    gap: 0.1rem;
+    text-decoration: none;
+}
+
+.navbar .nav-logo .logo-text{
+    font-size: 1.25rem;
+    color: var(--black-color);
+}
+
+.navbar .nav-center{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.navbar .search-form {
+    max-width: 550px;
+    flex: 1;
+    height: 40px;
+}
+.navbar .search-form .search-input{
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 3.1rem 0 0 3.1rem;
+    outline: none;
+    font-size: 1rem;
+    background: var(--white-color);
+}
+.navbar .search-form .search-button{
+    width: auto;
+    padding: 0 1.25rem;
+    border: 1px solid var(--border-color);
+    /* incase u forgot
+     border-radius=a b c d
+        a= top-left
+        b=top-right
+        c=bottom-right
+        d=bottom-left
+    */
+    border-radius: 0 3.1rem 3.1rem 0;
+    border-left: 0;
+}
+
+/* main part */
+.main-layout{
+    display: flex;
+    /* overflow-y: auto; */
+}
+
+.main-layout .sidebar{
+    width: 280px;
+    padding: 0 0.7rem 0;
+    background: var(--white-color);
+}
+body.sidebar-hidden .main-layout .sidebar{
+    width: 0;
+    padding: 0;
+}
+.sidebar .link-container{
+    padding: 1rem 0 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+}
+.sidebar .link-container:hover{
+    scrollbar-color: #a6a6a6 transparent;
+}
+.sidebar .link-section .link-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.938rem;
+    padding: 0.37rem 0.75rem;
+    white-space: nowrap;
+    margin-bottom: 0.25rem;
+    text-decoration: none;
+    color: var(--black-color);
+    border-radius: 0.5rem;
+}
+
+.sidebar .link-section .link-item:hover{
+    background: var(--ligth-gray-color);
+}
+.sidebar .link-section .link-item  i{
+    font-size: 1.4rem;
+    margin-right: 0.63rem;
+}
+
+.sidebar .link-section .section-title{
+    font-size: 0.938rem;
+    font-weight: 600;
+    color: var(--black-color);
+    margin: 1rem 0 0.5rem 0.5rem;
+}
+
+.sidebar .section-seprator{
+    height: 1px;
+    margin: 0.625rem 0;
+    background:var(--ligth-gray-color) ;
+}
+
+.main-layout .content-wrapper{
+    padding: 0 1rem;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+
+.content-wrapper .category-list{
+    display: flex;
+    gap: 0.75rem;
+    /* scroll in x direction👇 */
+    overflow-x: auto;
+    padding: 0.75rem 0 0.7rem ;     
+    scrollbar-width: none;
+}
+
+.category-list .category-button{
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.5rem;
+    color: var(--black-color);
+    white-space: nowrap;
+    background: var(--ligth-gray-color);
+}
+.category-list .category-button.active{
+    color: var(--white-color);
+    background: var(--black-color);
+    pointer-events: none;
+}
+.category-list .category-button:hover{
+    background: var(--border-color);
+}
+
+.content-wrapper .video-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));    
+    gap: 1rem;
+    padding: 1.25rem 0 4rem;
+}
+.video-list .video-card {
+    text-decoration: none;
+}
+
+.video-list .video-card .video-info{
+    display: flex;
+    gap: 0.7rem;
+    padding: 0.7rem 0.5rem;
+}
+
+.video-list .video-card .thumbnail-container{
+    position: relative;
+}
+
+.video-list .video-card .thumbnail{
+    width: 100%;
+    border-radius: 0.5rem;
+    /* نسبت طول به عرض (یا عرض به ارتفاع) */
+    aspect-ratio: 16 / 9;
+}
+.video-list .video-card .duration{
+    position: absolute;
+    right: 0.65rem;
+    bottom: 0.8rem;
+    color: #fff;
+    font-size:0.875rem ;
+    padding: 0 0.3rem;
+    border-radius: 0.3rem;
+    background: var(--overlay-dark-color);
+}
+.video-list .video-card  .icon{
+    width: 60px;
+    height: 60px;
+}
+.video-list .video-card .title{
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--black-color);
+    /*  اگه محتوای داخل یک عنصر بیشتر از اندازهٔ خودش بشه (مثلاً یه متن یا تصویر بزرگ‌تر از باکس باشه)، اون قسمت اضافه نشون داده نشه، بلکه بریده بشه */
+    /* overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; */
+
+}
+.video-list .video-card .title:hover{
+    color: var(--primary-color);
+}
+.video-list .video-card p{
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+}
+.video-list .video-card .chanel-name{
+    margin: 0.25 0 0.15rem;
+}
+@media(max-width:768px){
+    .main-layout .sidebar{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        height: 100vh;
+        transition: 0.2s ease;
+    }
+}
